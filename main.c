@@ -1,8 +1,5 @@
 #include <stdio.h>
 
-int encript(int e);
-
-int decript(int d);
 
 int main() 
   {
@@ -16,28 +13,35 @@ int main()
       printf("Press 'e' to run task 5\n");
       printf("Press 'f' to run task 6\n");
       scanf("%c", &select)
-  } while (96<select<102)
+  } while (select<96, select>102)
 
-      switch(select) { // run the program selected
+      switch(select) // run the program selected
+      { 
           case a:
+          int m, key, e;
+          e=(m+k)(%k);
+          return e;
+          printf("%c", select);
+          break;
+      
           case b:
+          int c, key, d;
+          d=(c-k)*(%*26);
+          return d;
+          break;
+          
           case c:
+          break;
           case d:
+          break;
           case e:
+          break;
           case f:
-          default: printf("Incorrect entry please try again");
+          break;
+          default:
+          printf("Error");
+          return 0;
       }
   return O;
   }
 
-int encript(int x) {
-    int m, key, e;
-    e=(m+k)(%k);
-    return e;
-}
-
-int decript(int y) {
-    int c, key, d;
-    d=(c-k)*(%*26);
-    return d;
-}
