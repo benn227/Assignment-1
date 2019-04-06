@@ -3,7 +3,7 @@
 
 int main() 
   {
-      char select=100;
+      char select=97;
       
       do {
       printf("Please enter a selection\n"); //user choice as task
@@ -13,12 +13,25 @@ int main()
       printf("Press 'd' to run task 4\n");
       printf("Press 'e' to run task 5\n");
       printf("Press 'f' to run task 6\n");
-      scanf("%c", &select);
+      //scanf("%c", &select);
   }
 
-      while (select<96 || select>102);
+      while (select<97 || select>102);
 
 
-printf("%c", select);
+printf("Run switch %c\n", select);
+
+select=select-96;
+printf("%d\n", select);
+
+switch(select) {
+    case 1:
+    printf("its running");
+    break;
+    default:
+    printf("its not running");
+    break;
+}
+
 return 0;
 }
