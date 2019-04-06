@@ -26,7 +26,13 @@ printf("%d\n", select);
 
 switch(select) {
     case 1:
-    printf("its running");
+    printf("case 1 is running\n");
+    char messageString[]="test";
+    int i;
+      for (i=0;i<5;i++) 
+      {   
+      printf("%c", messageString[i]);
+      }
     break;
     default:
     printf("its not running");
