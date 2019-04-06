@@ -3,7 +3,7 @@
 
 int main() 
   {
-      char select=97;
+      char select=102;
       
       do {
       printf("Please enter a selection\n"); //user choice as task
@@ -33,6 +33,21 @@ switch(select) {
       {   
       printf("%c", messageString[i]);
       }
+    break;
+    case 2:
+    printf("case 2 is running\n");
+    break;
+    case 3:
+    printf("case 3 is running\n");
+    break;
+    case 4:
+    printf("case 4 is running\n");
+    break;
+    case 5:
+    printf("case 5 is running\n");
+    break;
+    case 6:
+    printf("case 6 is running\n");
     break;
     default:
     printf("its not running");
