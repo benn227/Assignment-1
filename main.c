@@ -1,9 +1,10 @@
 #include <stdio.h>
 
+char caesarCipher(char encryptCaesar[]);
 
 int main() 
   {
-      char select=98;
+      char select=97;
       
       
       do {
@@ -26,44 +27,40 @@ select=select-96;
 printf("Selected case %d\n", select);
 
 switch(select) {
-    int i, key;
-    
-    
+    int i, key;       
     
     case 1:
             
       printf("Enter a message to encrypt\n");      
       //scanf("%c", &encryptString[10]);
-      char encryptString[]="test";
+      char encryptCaesar[]="TEST";
       printf("Enter key value\n");      
       //scanf("%d", &enkey);
-      key =1;
-      for (i=0;i<4;i++) 
-      {   
-      printf("%c", encryptString[i]+key);
-      }
-      break;
-    
+      encryptCaesar(encryptCaesar[]);
+      printf("%c", encryptCaesar[i]+key);
+      break;    
       
     case 2:
     
       printf("case 2 is running\n");
       //scanf("%c", &decryptString[]);
-      char decryptString[]="uftu";
+      char decryptCaesar[]="UFTU";
       //scanf("%d", &dekey);
       key =1;
         for (i=0;i<4;i++) 
         {   
-        printf("%c", decryptString[i]-key);
+        printf("%c", decryptCaesar[i]-key);
         }
        break;
     
     case 3:
     printf("case 3 is running\n");
+    char encryptRotate[]="HELP";
     break;
     
     case 4:
     printf("case 4 is running\n");
+    char decryptRotate[]="QWER";
     break;
     
     case 5:
@@ -80,4 +77,12 @@ switch(select) {
 }
 
 return 0;
+}
+
+char caesarCipher(char[]) {
+    key =1;
+      for (i=0;i<4;i++) 
+      {   
+      
+      }
 }
