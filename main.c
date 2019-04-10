@@ -1,10 +1,12 @@
 #include <stdio.h>
 
-char caesarCipher(char encryptCaesar[]);
+void caesarEncrypt(char *encryptMessage);
+
+void caesarDecrypt(char *decryptMessage);
 
 int main() 
   {
-      char select=97;
+      char select=98;
       
       
       do {
@@ -27,40 +29,28 @@ select=select-96;
 printf("Selected case %d\n", select);
 
 switch(select) {
-    int i, key;       
     
     case 1:
-            
-      printf("Enter a message to encrypt\n");      
-      //scanf("%c", &encryptString[10]);
-      char encryptCaesar[]="TEST";
-      printf("Enter key value\n");      
-      //scanf("%d", &enkey);
-      encryptCaesar(encryptCaesar[]);
-      printf("%c", encryptCaesar[i]+key);
+      printf("Case 1 is runningn\n");
+      char encryptMessage[]="TEST";
+      caesarEncrypt(encryptMessage);  
       break;    
       
     case 2:
     
       printf("case 2 is running\n");
-      //scanf("%c", &decryptString[]);
-      char decryptCaesar[]="UFTU";
-      //scanf("%d", &dekey);
-      key =1;
-        for (i=0;i<4;i++) 
-        {   
-        printf("%c", decryptCaesar[i]-key);
-        }
-       break;
+      char decryptMessage[]="UFTU";
+      caesarDecrypt(decryptMessage);
+      break;
     
     case 3:
     printf("case 3 is running\n");
-    char encryptRotate[]="HELP";
+    //char encryptRotate[]="HELP";
     break;
     
     case 4:
     printf("case 4 is running\n");
-    char decryptRotate[]="QWER";
+    //char decryptRotate[]="QWER";
     break;
     
     case 5:
@@ -79,10 +69,20 @@ switch(select) {
 return 0;
 }
 
-char caesarCipher(char[]) {
-    key =1;
-      for (i=0;i<4;i++) 
+void caesarEncrypt(char *encryptMessage) {
+      int i, key =1;
+      for (i=0;encryptMessage[i]!='\0';i++) 
       {   
-      
+      printf("%c",encryptMessage[i]+key);    
       }
-}
+  }
+
+      
+void caesarDecrypt(char *decryptMessage) {
+      int i, key =1;
+      for (i=0;decryptMessage[i]!='\0';i++) 
+      {   
+      printf("%c",decryptMessage[i]-key);    
+      }
+  }
+
