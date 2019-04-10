@@ -6,7 +6,7 @@ void caesarDecrypt(char *decryptMessage);
 
 int main() 
   {
-      char select=98;
+      char select=97;
       
       
       do {
@@ -32,7 +32,7 @@ switch(select) {
     
     case 1:
       printf("Case 1 is runningn\n");
-      char encryptMessage[]="TEST";
+      char encryptMessage[]="TESTZ@";
       caesarEncrypt(encryptMessage);  
       break;    
       
@@ -69,13 +69,25 @@ switch(select) {
 return 0;
 }
 
-void caesarEncrypt(char *encryptMessage) {
-      int i, key =1;
+void caesarEncrypt(char *encryptMessage) 
+{
+      int i, temp, key =1;
       for (i=0;encryptMessage[i]!='\0';i++) 
       {   
+        temp=encryptMessage[i];
+        
+        if (temp>89) 
+        {
+            encryptMessage[i] = encryptMessage[i]-26;
+        }
+        else if (temp<65) 
+        {
+            printf("error");
+            break;
+        }
       printf("%c",encryptMessage[i]+key);    
       }
-  }
+}
 
       
 void caesarDecrypt(char *decryptMessage) {
