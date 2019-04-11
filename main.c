@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+void functionName(int *array);
 
 int main() 
   {
@@ -19,6 +20,21 @@ int main()
       { 
           case a:
           int m, key, e;
+          int array[5];
+          functionName(&array[0]);
+
+          return 0;
+}
+
+void functionName(int *array) 
+{
+    int i;
+    for (i=0;i<5;i++) 
+        {
+        array[i] = 0;
+        printf("%d\n", array[i]);
+        }
+}
           e=(m+k)(%k);
           return e;
           printf("%c", select);
