@@ -6,7 +6,7 @@ void caesarDecrypt(char *decryptMessage);
 
 int main() 
   {
-      char select=97;
+      char select=98;
       
       
       do {
@@ -32,14 +32,14 @@ switch(select) {
     
     case 1:
       printf("Case 1 is running\n");
-      char encryptMessage[]="TESTZ@";
+      char encryptMessage[]="TEST plus OTHER $#@T";
       caesarEncrypt(encryptMessage);  
       break;    
       
     case 2:
     
-      printf("case 2 is running\n");
-      char decryptMessage[]="UFTU";
+      printf("Case 2 is running\n");
+      char decryptMessage[]="TVU TVAOTH: AOL KHAH IYVBNOA AV BZ IF AOL IVAOHU ZWPLZ WPUWVPUAZ AOL LEHJA SVJHAPVU VM AOL LTWLYVY'Z ULD IHAASL ZAHAPVU. DL HSZV RUVD AOHA AOL DLHWVU ZFZALTZ VM AOPZ KLHAO ZAHY HYL UVA FLA VWLYHAPVUHS. DPAO AOL PTWLYPHS MSLLA ZWYLHK AOYVBNOVBA AOL NHSHEF PU H CHPU LMMVYA AV LUNHNL BZ, PA PZ YLSHAPCLSF BUWYVALJALK. IBA TVZA PTWVYAHUA VM HSS, DL'CL SLHYULK AOHA AOL LTWLYVY OPTZLSM PZ WLYZVUHSSF VCLYZLLPUN AOL MPUHS ZAHNLZ VM AOL JVUZAYBJAPVU VM AOPZ KLHAO ZAHY. THUF IVAOHUZ KPLK AV IYPUN BZ AOPZ PUMVYTHAPVU";
       caesarDecrypt(decryptMessage);
       break;
     
@@ -81,7 +81,7 @@ void caesarEncrypt(char *encryptMessage)
         else 
         {
            encryptMessage[i]=encryptMessage[i]-65; 
-           encryptMessage[i]=encryptMessage[i]+key%26;
+           encryptMessage[i]=(encryptMessage[i]+key)%26;
            encryptMessage[i]=encryptMessage[i]+65;
            printf("%c",encryptMessage[i]);
         }
@@ -92,10 +92,23 @@ void caesarEncrypt(char *encryptMessage)
 }
 
       
-void caesarDecrypt(char *decryptMessage) {
-      int i, key =1;
+void caesarDecrypt(char *decryptMessage) 
+
+{
+      int i, key =7;
       for (i=0;decryptMessage[i]!='\0';i++) 
-      {   
-      printf("%c",decryptMessage[i]-key);    
+      {
+         if (decryptMessage[i]<65||decryptMessage[i]>90 )
+        {
+            printf("%c",decryptMessage[i]); 
+        }
+        else 
+        {
+           decryptMessage[i]=decryptMessage[i]-65; 
+           decryptMessage[i]=(decryptMessage[i]-key+26)%26;
+           decryptMessage[i]=decryptMessage[i]+65;
+           printf("%c",decryptMessage[i]);   
+        }
       }
-  }
+      
+}
