@@ -10,37 +10,38 @@ int main()
       
       
       do {
-      printf("Please enter a selection\n");
+      
       printf("Press 'a' to run task 1\n");
       printf("Press 'b' to run task 2\n");
       printf("Press 'c' to run task 3\n");
       printf("Press 'd' to run task 4\n");
       printf("Press 'e' to run task 5\n");
       printf("Press 'f' to run task 6\n");
+      printf("Please enter a selection: ");
       scanf("%c", &select);
          }
 
       while (select<97 || select>102);
 
 
-printf("User selected %c\n", select);
+printf("You selected '%c'\n", select);
 
 select=select-96;
-printf("Selected case %d\n", select);
 
 switch(select) {
     
     case 1:
-      
-      printf("The encrypted message is: ");
-      char encryptMessage[]="TEST";
+      printf("Enter the message to encrypt:\n");
+      char encryptMessage[1024]="TEST A SENTENCE" ;
+      //scanf("%c", &encryptMessage[1024]);
+      printf("The encrypted message is: ");      
       caesarEncrypt(encryptMessage);  
       break;    
       
-    case 2:
-    
-      printf("The decrypted message is: ");
+    case 2:    
+      printf("Enter the message to decrypt:\n");
       char decryptMessage[]="TVU TVAOTH: AOL KHAH IYVBNOA AV BZ IF AOL IVAOHU ZWPLZ WPUWVPUAZ AOL LEHJA SVJHAPVU VM AOL LTWLYVY'Z ULD IHAASL ZAHAPVU. DL HSZV RUVD AOHA AOL DLHWVU ZFZALTZ VM AOPZ KLHAO ZAHY HYL UVA FLA VWLYHAPVUHS. DPAO AOL PTWLYPHS MSLLA ZWYLHK AOYVBNOVBA AOL NHSHEF PU H CHPU LMMVYA AV LUNHNL BZ, PA PZ YLSHAPCLSF BUWYVALJALK. IBA TVZA PTWVYAHUA VM HSS, DL'CL SLHYULK AOHA AOL LTWLYVY OPTZLSM PZ WLYZVUHSSF VCLYZLLPUN AOL MPUHS ZAHNLZ VM AOL JVUZAYBJAPVU VM AOPZ KLHAO ZAHY. THUF IVAOHUZ KPLK AV IYPUN BZ AOPZ PUMVYTHAPVU";
+      printf("The decrypted message is: ");
       caesarDecrypt(decryptMessage);
       break;
     
@@ -85,10 +86,7 @@ void caesarEncrypt(char *encryptMessage)
            encryptMessage[i]=(encryptMessage[i]+key)%26;
            encryptMessage[i]=encryptMessage[i]+65;
            printf("%c",encryptMessage[i]);
-        }
-        
-
-    
+        }           
       }
 }
 
