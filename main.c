@@ -10,7 +10,7 @@ void subDecrypt(char *subDecryptMessage);
 
 int main() 
   {
-      char select=99;
+      char select=100;
       
       
       do {
@@ -57,7 +57,8 @@ switch(select) {
     
     case 4:
     printf("case 4 is running\n");
-    //char decryptRotate[]="QWER";
+    char subDecryptMessage[]="HSTQLT UTZ DOSA QZ ZIT LIGHL";
+    subDecrypt(subDecryptMessage);
     break;
     
     case 5:
@@ -141,14 +142,17 @@ void subEncrypt(char *subEncryptMessage)
 
 void subDecrypt(char *subDecryptMessage)
 {
-    int i;
+    int i, n;
     char subDecryptString[]= {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
     for(i=0;subDecryptMessage[i]!='\0';i++)
     {
-        if (subDecryptMessage[i]<65||subDecryptMessage[i]>90 )
+        //printf("%d-", subDecryptMessage[i]);
+        if (subDecryptMessage[i]>=65 && subDecryptMessage[i]<=90 )
         {
-            subDecryptMessage[i]=subDecryptString[i];
-            printf("%c",subDecryptString[i]); 
+            subDecryptMessage[i]=subDecryptMessage[i]-65; 
+            n=subDecryptMessage[i]%26;
+            //printf("%d-", n);
+            printf("%c",subDecryptString[n]);
         }
         else 
         {
