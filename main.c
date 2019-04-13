@@ -51,7 +51,7 @@ switch(select) {
     
     case 3:
     printf("case 3 is running\n");
-    char subEncryptMessage[]="HELP with SOME Other $#@T";
+    char subEncryptMessage[]="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     subEncrypt(subEncryptMessage);
     break;
     
@@ -124,7 +124,7 @@ void subEncrypt(char *subEncryptMessage)
     for(i=0;subEncryptMessage[i]!='\0';i++)
     {
         
-        if (subEncryptMessage[i]>65 && subEncryptMessage[i]<90 )
+        if (subEncryptMessage[i]>=65 && subEncryptMessage[i]<=90 )
         {
             subEncryptMessage[i]=subEncryptMessage[i]-65; 
             n=subEncryptMessage[i]%26;
