@@ -4,9 +4,13 @@ void caesarEncrypt(char *encryptMessage);
 
 void caesarDecrypt(char *decryptMessage);
 
+void subEncrypt(char *subEncryptMessage);
+
+void subDecrypt(char *subDecryptMessage);
+
 int main() 
   {
-      char select;
+      char select=99;
       
       
       do {
@@ -18,7 +22,7 @@ int main()
       printf("Press 'e' to run task 5\n");
       printf("Press 'f' to run task 6\n");
       printf("Please enter a selection: ");
-      scanf("%c", &select);
+      //scanf("%c", &select);
          }
 
       while (select<97 || select>102);
@@ -47,7 +51,8 @@ switch(select) {
     
     case 3:
     printf("case 3 is running\n");
-    //char encryptRotate[]="HELP";
+    char subEncryptMessage[]="HELP";
+    subEncrypt(subEncryptMessage);
     break;
     
     case 4:
@@ -110,4 +115,43 @@ void caesarDecrypt(char *decryptMessage)
         }
       }
       
+}
+
+void subEncrypt(char *subEncryptMessage)
+{
+    int i;
+    char subEncryptString[]= {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
+    for(i=0;subEncryptMessage[i]!='\0';i++)
+    {
+        if (subEncryptMessage[i]<65||subEncryptMessage[i]>90 )
+        {
+            subEncryptMessage[i]= subEncryptString[i];
+            printf("%c",subEncryptString[i]); 
+        }
+        else 
+        {
+            printf("%c", subEncryptMessage[i]);
+        }
+        
+    }
+        
+}
+
+void subDecrypt(char *subDecryptMessage)
+{
+    int i;
+    char subDecryptString[]= {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
+    for(i=0;subDecryptMessage[i]!='\0';i++)
+    {
+        if (subDecryptMessage[i]<65||subDecryptMessage[i]>90 )
+        {
+            subDecryptMessage[i]=subDecryptString[i];
+            printf("%c",subDecryptString[i]); 
+        }
+        else 
+        {
+            printf("%c", subDecryptMessage[i]);
+        }
+        
+    }
 }
