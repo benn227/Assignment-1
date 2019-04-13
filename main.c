@@ -51,7 +51,7 @@ switch(select) {
     
     case 3:
     printf("case 3 is running\n");
-    char subEncryptMessage[]="HELP";
+    char subEncryptMessage[]="HELP with SOME Other $#@T";
     subEncrypt(subEncryptMessage);
     break;
     
@@ -119,14 +119,16 @@ void caesarDecrypt(char *decryptMessage)
 
 void subEncrypt(char *subEncryptMessage)
 {
-    int i;
+    int i, n;
     char subEncryptString[]= {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
     for(i=0;subEncryptMessage[i]!='\0';i++)
     {
-        if (subEncryptMessage[i]<65||subEncryptMessage[i]>90 )
+        
+        if (subEncryptMessage[i]>65 && subEncryptMessage[i]<90 )
         {
-            subEncryptMessage[i]= subEncryptString[i];
-            printf("%c",subEncryptString[i]); 
+            subEncryptMessage[i]=subEncryptMessage[i]-65; 
+            n=subEncryptMessage[i]%26;
+            printf("%c",subEncryptString[n]); 
         }
         else 
         {
