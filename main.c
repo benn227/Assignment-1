@@ -4,9 +4,9 @@ void caesarEncrypt(char *encryptMessage);
 
 void caesarDecrypt(char *decryptMessage);
 
-void subEncrypt(char *subEncryptMessage);
+void subEncrypt(char *subEncryptMessage, char *subEncryptString);
 
-void subDecrypt(char *subDecryptMessage);
+void subDecrypt(char *subDecryptMessage, char *subDecryptString);
 
 int main() 
   {
@@ -52,13 +52,15 @@ switch(select) {
     case 3:
     printf("case 3 is running\n");
     char subEncryptMessage[]="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    subEncrypt(subEncryptMessage);
+    char subEncryptString[]= {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
+    subEncrypt(subEncryptMessage, subEncryptString);
     break;
     
     case 4:
     printf("case 4 is running\n");
     char subDecryptMessage[]="AHSTQLT UTZ DOSA QZ ZIT LIGHL";
-    subDecrypt(subDecryptMessage);
+    char subDecryptString[]= {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
+    subDecrypt(subDecryptMessage, subDecryptString);
     break;
     
     case 5:
@@ -118,10 +120,10 @@ void caesarDecrypt(char *decryptMessage)
       
 }
 
-void subEncrypt(char *subEncryptMessage)
+void subEncrypt(char *subEncryptMessage, char *subEncryptString)
 {
     int i, n;
-    char subEncryptString[]= {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
+    
     for(i=0;subEncryptMessage[i]!='\0';i++)
     {
         
@@ -140,30 +142,18 @@ void subEncrypt(char *subEncryptMessage)
         
 }
 
-void subDecrypt(char *subDecryptMessage)
+void subDecrypt(char *subDecryptMessage, char *subDecryptString)
 {
     int i, n, key;
-    char subDecryptString[]= {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
+    
     for(i=0;subDecryptMessage[i]!='\0';i++)
     {
         //printf("%d-", subDecryptMessage[i]);
-        if (subDecryptMessage[i]>=65 && subDecryptMessage[i]<=90 )
-        {             
-           for(n=0;n<=26;n++)
-           {
-               if (subDecryptMessage[i]==subDecryptString[n])
-               {
-                   key=n;
-                   printf("%c",subDecryptString[key]);
-               }
-               else
-               {
-                   key=n;    
-               }
-               
-           }
+        if (subDecryptMessage[i]>=65 && subDecryptMessage[i]<=90)
+        {
+            subDecryptMessage[i]=subDecryptMessage[i]-65; 
+            n=subDecryptMessage[i]%26;            
         }
-
         else 
         {
             printf("%c", subDecryptMessage[i]);
