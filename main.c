@@ -51,14 +51,14 @@ switch(select) {
     
     case 3:
     printf("case 3 is running\n");
-    char subEncryptMessage[]="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char subEncryptMessage[]="PLEASE GET MILK AT THE SHOPS";
     char subEncryptString[]= {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
     subEncrypt(subEncryptMessage, subEncryptString);
     break;
     
     case 4:
     printf("case 4 is running\n");
-    char subDecryptMessage[]="AHSTQLT UTZ DOSA QZ ZIT LIGHL";
+    char subDecryptMessage[]="HSTQLT UTZ DOSA QZ ZIT LIGHL";
     char subDecryptString[]= {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
     subDecrypt(subDecryptMessage, subDecryptString);
     break;
@@ -151,17 +151,9 @@ void subDecrypt(char *subDecryptMessage, char *subDecryptString)
         //printf("%d-", subDecryptMessage[i]);
         if (subDecryptMessage[i]>=65 && subDecryptMessage[i]<=90)
         {
-            x=subDecryptMessage[i];
-            
-            for(n=0;n<=26;n++)
-            {
-                y=subDecryptString[n];
-                
-                if(x==y)
-                {
-                    printf ("%c", subDecryptString[n]);
-                }
-            }
+            subDecryptMessage[i]=subDecryptMessage[i]-65; 
+            n=subDecryptMessage[i]%26;
+            printf("%c",subDecryptString[n]); 
         }
         else 
         {
