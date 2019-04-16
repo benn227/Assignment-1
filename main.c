@@ -144,16 +144,19 @@ void subEncrypt(char *subEncryptMessage, char *subEncryptString)
 
 void subDecrypt(char *subDecryptMessage, char *subDecryptString)
 {
-    int i, n, x, y;
+    int i, n;
+    char key;
     
     for(i=0;subDecryptMessage[i]!='\0';i++)
     {
         //printf("%d-", subDecryptMessage[i]);
         if (subDecryptMessage[i]>=65 && subDecryptMessage[i]<=90)
         {
-            subDecryptMessage[i]=subDecryptMessage[i]-65; 
-            n=subDecryptMessage[i]%26;
-            printf("%c",subDecryptString[n]); 
+            for (n=0;subDecryptString[n]!=subDecryptMessage[i];n++)
+            {
+                key=n+65+1;
+            }
+            printf("%c", key);
         }
         else 
         {
