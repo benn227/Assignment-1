@@ -10,7 +10,7 @@ void subDecrypt(char *subDecryptMessage, char *subDecryptString);
 
 int main() 
   {
-      char select=100;
+      char select;
       
       
       do {
@@ -22,7 +22,7 @@ int main()
       printf("Press 'e' to run task 5\n");
       printf("Press 'f' to run task 6\n");
       printf("Please enter a selection: ");
-      //scanf("%c", &select);
+      scanf("%c", &select);
          }
 
       while (select<97 || select>102);
@@ -35,6 +35,7 @@ select=select-96;
 switch(select) {
     
     case 1:
+      printf("This is Task 1: Rotation Encryption\n");
       printf("Enter the message to encrypt:\n");
       char encryptMessage[1024]="TEST A SENTENCE" ;
       //scanf("%c", &encryptMessage[1024]);
@@ -42,7 +43,8 @@ switch(select) {
       caesarEncrypt(encryptMessage);  
       break;    
       
-    case 2:    
+    case 2:   
+      printf("This is Task 2: Rotation Decryption\n");
       printf("Enter the message to decrypt:\n");
       char decryptMessage[]="TVU TVAOTH: AOL KHAH IYVBNOA AV BZ IF AOL IVAOHU ZWPLZ WPUWVPUAZ AOL LEHJA SVJHAPVU VM AOL LTWLYVY'Z ULD IHAASL ZAHAPVU. DL HSZV RUVD AOHA AOL DLHWVU ZFZALTZ VM AOPZ KLHAO ZAHY HYL UVA FLA VWLYHAPVUHS. DPAO AOL PTWLYPHS MSLLA ZWYLHK AOYVBNOVBA AOL NHSHEF PU H CHPU LMMVYA AV LUNHNL BZ, PA PZ YLSHAPCLSF BUWYVALJALK. IBA TVZA PTWVYAHUA VM HSS, DL'CL SLHYULK AOHA AOL LTWLYVY OPTZLSM PZ WLYZVUHSSF VCLYZLLPUN AOL MPUHS ZAHNLZ VM AOL JVUZAYBJAPVU VM AOPZ KLHAO ZAHY. THUF IVAOHUZ KPLK AV IYPUN BZ AOPZ PUMVYTHAPVU";
       printf("The decrypted message is: ");
@@ -50,29 +52,29 @@ switch(select) {
       break;
     
     case 3:
-    printf("case 3 is running\n");
+    printf("This is Task 3: Substitution Encryption\n");
     char subEncryptMessage[]="PLEASE GET MILK AT THE SHOPS";
     char subEncryptString[]= {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
     subEncrypt(subEncryptMessage, subEncryptString);
     break;
     
     case 4:
-    printf("case 4 is running\n");
+    printf("This is Task 4: Substitution Decryption\n");
     char subDecryptMessage[]="HSTQLT UTZ DOSA QZ ZIT LIGHL";
     char subDecryptString[]= {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
     subDecrypt(subDecryptMessage, subDecryptString);
     break;
     
     case 5:
-    printf("case 5 is running\n");
+    printf("Sorry Task 5 is currently unavailiable\n");
     break;
     
     case 6:
-    printf("case 6 is running\n");
+    printf("Sorry Task 6 is currently unavailiale\n");
     break;
     
     default:
-    printf("its not running");
+    printf("Error please start again\n");
     break;
 }
 
