@@ -154,8 +154,9 @@ void subDecrypt(char *subDecryptMessage, char *subDecryptString)
         {
             for (n=0;subDecryptString[n]!=subDecryptMessage[i];n++)
             {
-                key=n+65+1;
+                key=n;
             }
+            key=n+65;
             printf("%c", key);
         }
         else 
