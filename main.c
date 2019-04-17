@@ -1,5 +1,11 @@
+/*This program allows the user to Cipher and Decipher text in two ways.
+The first is with the caesar substitution method and a key, and the second is
+with the substitution method and a key.*/
+
+//inluded library
 #include <stdio.h>
 
+//Function prototypes
 void caesarEncrypt(char *encryptMessage);
 
 void caesarDecrypt(char *decryptMessage);
@@ -8,11 +14,16 @@ void subEncrypt(char *subEncryptMessage, char *subEncryptString);
 
 void subDecrypt(char *subDecryptMessage, char *subDecryptString);
 
+//Main body of program
 int main() 
   {
-      char select;
+      //char variable for user input to select task
+      char select; 
       
-      
+      // do while loop to allow the user to select which task they would like to run
+      //It has the condition to keep running while the user selects any value less than
+      // 97 or greater than 102 because the ASCII value for 'a' is 97 and 'f' is 102
+      // and that is the only selections we want.
       do {
       
       printf("Press 'a' to run task 1\n");
@@ -81,6 +92,7 @@ switch(select) {
 return 0;
 }
 
+//Task 1 function
 void caesarEncrypt(char *encryptMessage) 
 {
       int i, key =7;
@@ -100,7 +112,7 @@ void caesarEncrypt(char *encryptMessage)
       }
 }
 
-      
+//Task 2 Function
 void caesarDecrypt(char *decryptMessage) 
 
 {
@@ -122,6 +134,7 @@ void caesarDecrypt(char *decryptMessage)
       
 }
 
+//Task 3 function
 void subEncrypt(char *subEncryptMessage, char *subEncryptString)
 {
     int i, n;
@@ -143,6 +156,7 @@ void subEncrypt(char *subEncryptMessage, char *subEncryptString)
         
 }
 
+//TAsk 4 function
 void subDecrypt(char *subDecryptMessage, char *subDecryptString)
 {
     int i, n;
