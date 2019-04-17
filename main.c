@@ -131,8 +131,7 @@ void subEncrypt(char *subEncryptMessage, char *subEncryptString)
         
         if (subEncryptMessage[i]>=65 && subEncryptMessage[i]<=90 )
         {
-            subEncryptMessage[i]=subEncryptMessage[i]-65; 
-            n=subEncryptMessage[i]%26;
+            n=subEncryptMessage[i]-65;
             printf("%c",subEncryptString[n]); 
         }
         else 
