@@ -1,29 +1,46 @@
+//--------------------------------------------------------------------------------------
+//*********************************Engg1003 Assignment**********************************
+//--------------------------------------------------------------------------------------
+
 /*This program allows the user to Cipher and Decipher text in two ways.
 The first is with the caesar substitution method and a key, and the second is
 with the substitution method and a key.*/
 
-//inluded library
+//--------------------------------------------------------------------------------------
+//***********************************inluded libraries**********************************
+//--------------------------------------------------------------------------------------
+
 #include <stdio.h>
 
-//Function prototypes
+//---------------------------------------------------------------------------------------
+//******************************All function prototypes**********************************
+//---------------------------------------------------------------------------------------
+
+//Task 1 function prototype
 void caesarEncrypt(char *encryptMessage);
 
+//Task 2 function prototype
 void caesarDecrypt(char *decryptMessage);
 
+//Task 3 function prototype
 void subEncrypt(char *subEncryptMessage, char *subEncryptString);
 
+//Task 4 function prototype
 void subDecrypt(char *subDecryptMessage, char *subDecryptString);
 
-//Main body of program
+//-----------------------------------------------------------------------------------------
+//**********************************Main body of program***********************************
+//-----------------------------------------------------------------------------------------
+
 int main() 
   {
       //char variable for user input to select task
       char select; 
       
-      // do while loop to allow the user to select which task they would like to run
-      //It has the condition to keep running while the user selects any value less than
-      // 97 or greater than 102 because the ASCII value for 'a' is 97 and 'f' is 102
-      // and that is the only selections we want.
+      /* do while loop to allow the user to select which task they would like to run
+      It has the condition to keep running while the user selects any value less than 
+       97 or greater than 102 because the ASCII value for 'a' is 97 and 'f' is 102
+      and that is the only selections we want. */
       do {
       
       printf("Press 'a' to run task 1\n");
@@ -41,19 +58,23 @@ int main()
 
 printf("You selected '%c'\n", select);
 
+// subtracted 96 from selection value to get a value between 1 and 6 for the switch statement
 select=select-96;
 
+// A switch statement is used to run each assignment task 
 switch(select) {
     
+// Case 1 runs task 1
     case 1:
       printf("This is Task 1: Rotation Encryption\n");
       printf("Enter the message to encrypt:\n");
-      char encryptMessage[1024]="TEST A SENTENCE" ;
-      //scanf("%c", &encryptMessage[1024]);
+      char encryptMessage[1024];
+      scanf("%s", encryptMessage);
       printf("The encrypted message is: ");      
       caesarEncrypt(encryptMessage);  
       break;    
-      
+     
+// Case 2 runs task 2
     case 2:   
       printf("This is Task 2: Rotation Decryption\n");
       printf("Enter the message to decrypt:\n");
@@ -61,7 +82,8 @@ switch(select) {
       printf("The decrypted message is: ");
       caesarDecrypt(decryptMessage);
       break;
-    
+
+// Case 3 runs task 3  
     case 3:
     printf("This is Task 3: Substitution Encryption\n");
     char subEncryptMessage[]="PLEASE GET MILK AT THE SHOPS";
@@ -69,6 +91,7 @@ switch(select) {
     subEncrypt(subEncryptMessage, subEncryptString);
     break;
     
+// Case 4 runs task 4
     case 4:
     printf("This is Task 4: Substitution Decryption\n");
     char subDecryptMessage[]="HSTQLT UTZ DOSA QZ ZIT LIGHL";
@@ -92,7 +115,13 @@ switch(select) {
 return 0;
 }
 
-//Task 1 function
+//****************************End of main body************************************************
+
+//--------------------------------------------------------------------------------------------
+//****************************All function definitions****************************************
+//--------------------------------------------------------------------------------------------
+
+//Task 1 function definition
 void caesarEncrypt(char *encryptMessage) 
 {
       int i, key =7;
@@ -112,7 +141,7 @@ void caesarEncrypt(char *encryptMessage)
       }
 }
 
-//Task 2 Function
+//Task 2 Function definition
 void caesarDecrypt(char *decryptMessage) 
 
 {
@@ -134,7 +163,7 @@ void caesarDecrypt(char *decryptMessage)
       
 }
 
-//Task 3 function
+//Task 3 function definition
 void subEncrypt(char *subEncryptMessage, char *subEncryptString)
 {
     int i, n;
@@ -156,7 +185,7 @@ void subEncrypt(char *subEncryptMessage, char *subEncryptString)
         
 }
 
-//TAsk 4 function
+//Task 4 function definition
 void subDecrypt(char *subDecryptMessage, char *subDecryptString)
 {
     int i, n;
@@ -164,7 +193,6 @@ void subDecrypt(char *subDecryptMessage, char *subDecryptString)
     
     for(i=0;subDecryptMessage[i]!='\0';i++)
     {
-        //printf("%d-", subDecryptMessage[i]);
         if (subDecryptMessage[i]>=65 && subDecryptMessage[i]<=90)
         {
             for (n=0;subDecryptString[n]!=subDecryptMessage[i];n++)
@@ -181,3 +209,4 @@ void subDecrypt(char *subDecryptMessage, char *subDecryptString)
         
     }
 }
+//****************************End of function definitions***************************
