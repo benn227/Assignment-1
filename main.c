@@ -65,14 +65,14 @@ switch(select) {
     case 3:
     printf("This is Task 3: Substitution Encryption\n");
     char subEncryptMessage[]="PLEASE GET MILK AT THE SHOPS";
-    char subEncryptString[]= {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
+    char subEncryptString[]= "QWERTYUIOPASDFGHJKLZXCVBNM";
     subEncrypt(subEncryptMessage, subEncryptString);
     break;
     
     case 4:
     printf("This is Task 4: Substitution Decryption\n");
     char subDecryptMessage[]="HSTQLT UTZ DOSA QZ ZIT LIGHL";
-    char subDecryptString[]= {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
+    char subDecryptString[]= "QWERTYUIOPASDFGHJKLZXCVBNM";
     subDecrypt(subDecryptMessage, subDecryptString);
     break;
     
