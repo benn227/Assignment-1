@@ -81,10 +81,11 @@ switch(select) {
       {
           fscanf(input, "%s", encryptMessage);
           printf("The message is: %s\n ", encryptMessage);
+          caesarEncrypt(encryptMessage);
       }
-      
+           
+        
       fclose(input);
-      caesarEncrypt(encryptMessage);  
       break;    
      
 // Case 2 runs task 2
