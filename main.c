@@ -3,8 +3,8 @@
 //--------------------------------------------------------------------------------------
 
 /*This program allows the user to Cipher and Decipher text in two ways.
-The first is with the caesar substitution method and a key, and the second is
-with the substitution method and a key.*/
+The first is with the caesar rotation method, and the second is
+with the substitution method.*/
 
 //--------------------------------------------------------------------------------------
 //***********************************inluded libraries**********************************
@@ -66,17 +66,30 @@ switch(select) {
     
 // Case 1 runs task 1
     case 1:
-      printf("This is Task 1: Rotation Encryption\n");
-      printf("Enter the message to encrypt:\n");
+      printf("You are running Task 1: Rotation Encryption with key\n");
+      //printf("Enter the message to encrypt:\n");
       char encryptMessage[1024];
-      scanf("%s", encryptMessage);
-      printf("The encrypted message is: ");      
+      
+      FILE *input;
+      input = fopen("message.txt", "r");
+      if (input==NULL)
+      {
+          perror("fopen()");
+          return 0;
+      }
+      while (!feof(input))
+      {
+          fscanf(input, "%s", encryptMessage);
+          printf("The message is: %s\n ", encryptMessage);
+      }
+      
+      fclose(input);
       caesarEncrypt(encryptMessage);  
       break;    
      
 // Case 2 runs task 2
     case 2:   
-      printf("This is Task 2: Rotation Decryption\n");
+      printf("You are running Task 2: Rotation Decryption with key\n");
       printf("Enter the message to decrypt:\n");
       char decryptMessage[]="TVU TVAOTH: AOL KHAH IYVBNOA AV BZ IF AOL IVAOHU ZWPLZ WPUWVPUAZ AOL LEHJA SVJHAPVU VM AOL LTWLYVY'Z ULD IHAASL ZAHAPVU. DL HSZV RUVD AOHA AOL DLHWVU ZFZALTZ VM AOPZ KLHAO ZAHY HYL UVA FLA VWLYHAPVUHS. DPAO AOL PTWLYPHS MSLLA ZWYLHK AOYVBNOVBA AOL NHSHEF PU H CHPU LMMVYA AV LUNHNL BZ, PA PZ YLSHAPCLSF BUWYVALJALK. IBA TVZA PTWVYAHUA VM HSS, DL'CL SLHYULK AOHA AOL LTWLYVY OPTZLSM PZ WLYZVUHSSF VCLYZLLPUN AOL MPUHS ZAHNLZ VM AOL JVUZAYBJAPVU VM AOPZ KLHAO ZAHY. THUF IVAOHUZ KPLK AV IYPUN BZ AOPZ PUMVYTHAPVU";
       printf("The decrypted message is: ");
@@ -85,7 +98,7 @@ switch(select) {
 
 // Case 3 runs task 3  
     case 3:
-    printf("This is Task 3: Substitution Encryption\n");
+    printf("You are running Task 3: Substitution Encryption with key\n");
     char subEncryptMessage[]="PLEASE GET MILK AT THE SHOPS";
     char subEncryptString[]= "QWERTYUIOPASDFGHJKLZXCVBNM";
     subEncrypt(subEncryptMessage, subEncryptString);
@@ -93,7 +106,7 @@ switch(select) {
     
 // Case 4 runs task 4
     case 4:
-    printf("This is Task 4: Substitution Decryption\n");
+    printf("You are running Task 4: Substitution Decryption with key\n");
     char subDecryptMessage[]="HSTQLT UTZ DOSA QZ ZIT LIGHL";
     char subDecryptString[]= "QWERTYUIOPASDFGHJKLZXCVBNM";
     subDecrypt(subDecryptMessage, subDecryptString);
