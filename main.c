@@ -6,15 +6,10 @@
 The first is with the caesar rotation method, and the second is
 with the substitution method.*/
 
-//--------------------------------------------------------------------------------------
 //***********************************inluded libraries**********************************
-//--------------------------------------------------------------------------------------
-
 #include <stdio.h>
 
-//---------------------------------------------------------------------------------------
-//******************************All function prototypes**********************************
-//---------------------------------------------------------------------------------------
+//******************************all function prototypes**********************************
 
 //Task 1 function prototype
 void caesarEncrypt(char *encryptMessage);
@@ -28,19 +23,20 @@ void subEncrypt(char *subEncryptMessage, char *subEncryptString);
 //Task 4 function prototype
 void subDecrypt(char *subDecryptMessage, char *subDecryptString);
 
-//-----------------------------------------------------------------------------------------
+//******************************end of function prototypes*********************************
+
 //**********************************Main body of program***********************************
-//-----------------------------------------------------------------------------------------
 
 int main() 
   {
       //char variable for user input to select task
       char select; 
       
-      /* do while loop to allow the user to select which task they would like to run
+      /* the do while loop allows the user to select which task they would like to run
       It has the condition to keep running while the user selects any value less than 
-       97 or greater than 102 because the ASCII value for 'a' is 97 and 'f' is 102
-      and that is the only selections we want. */
+      97 or greater than 102 because the ASCII value for 'a' is 97 and 'f' is 102
+      and they are the only selections we want. */
+      
       do {
       
       printf("Press 'a' to run task 1\n");
@@ -49,13 +45,13 @@ int main()
       printf("Press 'd' to run task 4\n");
       printf("Press 'e' to run task 5\n");
       printf("Press 'f' to run task 6\n");
-      printf("Please enter a selection: ");
+      printf("Please enter a selection and press enter: ");
       scanf("%c", &select);
          }
 
       while (select<97 || select>102);
 
-
+//printing users selection to the screen
 printf("You selected '%c'\n", select);
 
 // subtracted 96 from selection value to get a value between 1 and 6 for the switch statement
@@ -84,9 +80,9 @@ switch(select) {
           fscanf(input, "%c", encryptMessage);
           caesarEncrypt(encryptMessage);
       }
-           
+      
       fclose(input);
-      printf("\n");
+      printf("End of program\n");
       break;    
      
 // Case 2 runs task 2
@@ -148,16 +144,14 @@ return 0;
 
 //****************************End of main body************************************************
 
-//--------------------------------------------------------------------------------------------
 //****************************All function definitions****************************************
-//--------------------------------------------------------------------------------------------
 
 //Task 1 function definition
 void caesarEncrypt(char *encryptMessage) 
 {
-      int i, key =1;
-      for (i=0;encryptMessage[i]!='\0';i++) 
-      {   
+      int i=0, key =1;
+      //for (i=0;encryptMessage[i]!='\0';i++) 
+      //{   
         if (encryptMessage[i]<65||encryptMessage[i]>90 )
         {
             printf("%c",encryptMessage[i]); 
@@ -168,8 +162,9 @@ void caesarEncrypt(char *encryptMessage)
            encryptMessage[i]=(encryptMessage[i]+key)%26;
            encryptMessage[i]=encryptMessage[i]+65;
            printf("%c",encryptMessage[i]);
-        }           
-      }
+        }
+
+      //}
 }
 
 //Task 2 Function definition
