@@ -67,25 +67,26 @@ switch(select) {
 // Case 1 runs task 1
     case 1:
       printf("You are running Task 1: Rotation Encryption with key\n");
-      //printf("Enter the message to encrypt:\n");
+      printf("The encrypted message is:");
       char encryptMessage[1024];
       
       FILE *input;
       input = fopen("message.txt", "r");
+      
       if (input==NULL)
       {
           perror("fopen()");
           return 0;
       }
+      
       while (!feof(input))
       {
-          fscanf(input, "%s", encryptMessage);
-          printf("The message is: %s\n ", encryptMessage);
+          fscanf(input, "%c", encryptMessage);
           caesarEncrypt(encryptMessage);
       }
            
-        
       fclose(input);
+      printf("\n");
       break;    
      
 // Case 2 runs task 2
