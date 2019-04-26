@@ -55,6 +55,7 @@ int main()
 printf("You selected '%c'\n", select);
 
 // subtracted 96 from selection value to get a value between 1 and 6 for the switch statement
+//ASCII value of 'a' is 97. So by subtracting 96 it will assign 1 to select variable to run case 1.
 select=select-96;
 
 // A switch statement is used to run each assignment task 
@@ -65,6 +66,7 @@ switch(select) {
     //print text just to inform user
       printf("You are running Task 1: Rotation Encryption with key\n");
       printf("The encrypted message is:\n");
+      //char array to store message string
       char encryptMessage[100000];
       
       //open a text file called message and read it
@@ -82,6 +84,7 @@ switch(select) {
       while (!feof(input))
       {
           fscanf(input, "%c", encryptMessage);
+          //run caesarEncrypt function
           caesarEncrypt(encryptMessage);
       }
       
@@ -97,6 +100,7 @@ switch(select) {
     //print text just to inform user
       printf("You are running Task 2: Rotation Decryption with key\n");
       printf("The decrypted message is:\n");
+      // char array to store message string
       char decryptMessage[100000];
       
       //open a text file called message2 and read it
@@ -114,6 +118,7 @@ switch(select) {
       while (!feof(input2))
       {
           fscanf(input2, "%c", decryptMessage);
+          //run caesarDecrypt function
           caesarDecrypt(decryptMessage);
       }
       
@@ -129,9 +134,11 @@ switch(select) {
     //print text just to inform user
     printf("You are running Task 3: Substitution Encryption with key\n");
     
+    //2 char arrays to store message string and key string
     char subEncryptMessage[]="PLEASE GET MILK AT THE SHOPS";
     char subEncryptString[]= "QWERTYUIOPASDFGHJKLZXCVBNM";
     
+    //run subEncrypt function
     subEncrypt(subEncryptMessage, subEncryptString);
     
     //print text just to tell user the program is finished
@@ -143,9 +150,11 @@ switch(select) {
     //print text just to inform user
     printf("You are running Task 4: Substitution Decryption with key\n");
     
+    //Two char arrays to store message string and key string
     char subDecryptMessage[]="HSTQLT UTZ DOSA QZ ZIT LIGHL";
     char subDecryptString[]= "QWERTYUIOPASDFGHJKLZXCVBNM";
     
+    //run subDecrypt function
     subDecrypt(subDecryptMessage, subDecryptString);
     
     //print text just to tell user the program is finished
@@ -175,7 +184,7 @@ return 0;
 //Task 1 function definition
 void caesarEncrypt(char *encryptMessage) 
 {
-      int i=0, key =1;
+      int i=0, key =7;
 
         if (encryptMessage[i]<65||encryptMessage[i]>90 )
         {
