@@ -62,68 +62,94 @@ switch(select) {
     
 // Case 1 runs task 1
     case 1:
+    //print text just to inform user
       printf("You are running Task 1: Rotation Encryption with key\n");
       printf("The encrypted message is:\n");
-      char encryptMessage[1024];
+      char encryptMessage[100000];
       
+      //open a text file called message and read it
       FILE *input;
       input = fopen("message.txt", "r");
       
+      //if can not open input2 print error message
       if (input==NULL)
       {
           perror("fopen()");
           return 0;
       }
       
+      //read input2 while not end of file and store it in encryptMessage
       while (!feof(input))
       {
           fscanf(input, "%c", encryptMessage);
           caesarEncrypt(encryptMessage);
       }
       
+      //close text file
       fclose(input);
-      printf("End of program\n");
+      
+      //print text just to tell user the program is finished
+      printf("\nEnd of program\n");
       break;    
      
 // Case 2 runs task 2
-    case 2:   
+    case 2:
+    //print text just to inform user
       printf("You are running Task 2: Rotation Decryption with key\n");
       printf("The decrypted message is:\n");
       char decryptMessage[100000];
       
+      //open a text file called message2 and read it
       FILE *input2;
       input2 = fopen("message2.txt", "r");
       
+      //if can not open input2 print error message
       if (input2==NULL)
       {
           perror("fopen()");
           return 0;
       }
       
+      //read input2 while not end of file and store it in decryptMessage
       while (!feof(input2))
       {
           fscanf(input2, "%c", decryptMessage);
           caesarDecrypt(decryptMessage);
       }
-           
+      
+      //close text file
       fclose(input2);
-      printf("\n");
+      
+      //print text just to tell user the program is finished
+      printf("\nEnd of program\n");
       break;
 
 // Case 3 runs task 3  
     case 3:
+    //print text just to inform user
     printf("You are running Task 3: Substitution Encryption with key\n");
+    
     char subEncryptMessage[]="PLEASE GET MILK AT THE SHOPS";
     char subEncryptString[]= "QWERTYUIOPASDFGHJKLZXCVBNM";
+    
     subEncrypt(subEncryptMessage, subEncryptString);
+    
+    //print text just to tell user the program is finished
+    printf("\nEnd of program\n");
     break;
     
 // Case 4 runs task 4
-    case 4:
+    case 4:    
+    //print text just to inform user
     printf("You are running Task 4: Substitution Decryption with key\n");
+    
     char subDecryptMessage[]="HSTQLT UTZ DOSA QZ ZIT LIGHL";
     char subDecryptString[]= "QWERTYUIOPASDFGHJKLZXCVBNM";
+    
     subDecrypt(subDecryptMessage, subDecryptString);
+    
+    //print text just to tell user the program is finished
+    printf("\nEnd of program\n");
     break;
     
     case 5:
