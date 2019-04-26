@@ -176,8 +176,7 @@ return 0;
 void caesarEncrypt(char *encryptMessage) 
 {
       int i=0, key =1;
-      //for (i=0;encryptMessage[i]!='\0';i++) 
-      //{   
+
         if (encryptMessage[i]<65||encryptMessage[i]>90 )
         {
             printf("%c",encryptMessage[i]); 
@@ -189,17 +188,14 @@ void caesarEncrypt(char *encryptMessage)
            encryptMessage[i]=encryptMessage[i]+65;
            printf("%c",encryptMessage[i]);
         }
-
-      //}
 }
 
 //Task 2 Function definition
 void caesarDecrypt(char *decryptMessage) 
 
 {
-      int i, key =7;
-      for (i=0;decryptMessage[i]!='\0';i++) 
-      {
+      int i=0, key =7;
+      
          if (decryptMessage[i]<65||decryptMessage[i]>90 )
         {
             printf("%c",decryptMessage[i]); 
@@ -211,7 +207,6 @@ void caesarDecrypt(char *decryptMessage)
            decryptMessage[i]=decryptMessage[i]+65;
            printf("%c",decryptMessage[i]);   
         }
-      }
       
 }
 
