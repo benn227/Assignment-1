@@ -28,17 +28,17 @@ void subDecrypt(char *subDecryptMessage, char *subDecryptString);
 //**********************************Main body of program***********************************
 
 int main() 
-  {
-      //char variable for user input to select task
-      char select; 
+{
+    //char variable for user input to select task
+    char select; 
       
-      /* the do while loop allows the user to select which task they would like to run
-      It has the condition to keep running while the user selects any value less than 
-      97 or greater than 102 because the ASCII value for 'a' is 97 and 'f' is 102
-      and they are the only selections we want. */
+    /* the do while loop allows the user to select which task they would like to run
+    It has the condition to keep running while the user selects any value less than 
+    97 or greater than 102 because the ASCII value for 'a' is 97 and 'f' is 102
+    and they are the only selections we want. */
       
-      do {
-      
+    do 
+    {
       printf("Press 'a' to run task 1\n");
       printf("Press 'b' to run task 2\n");
       printf("Press 'c' to run task 3\n");
@@ -47,132 +47,131 @@ int main()
       printf("Press 'f' to run task 6\n");
       printf("Please enter a selection and press enter: ");
       scanf("%c", &select);
-         }
+    }
+    while (select<97 || select>102);
 
-      while (select<97 || select>102);
+    //printing users selection to the screen
+    printf("You selected '%c'\n", select);
 
-//printing users selection to the screen
-printf("You selected '%c'\n", select);
+    // subtracted 96 from selection value to get a value between 1 and 6 for the switch statement
+    //ASCII value of 'a' is 97. So by subtracting 96 it will assign 1 to select variable to run case 1.
+    select=select-96;
 
-// subtracted 96 from selection value to get a value between 1 and 6 for the switch statement
-//ASCII value of 'a' is 97. So by subtracting 96 it will assign 1 to select variable to run case 1.
-select=select-96;
-
-// A switch statement is used to run each assignment task 
-switch(select) {
-    
-// Case 1 runs task 1
-    case 1:
-    //print text just to inform user
-      printf("You are running Task 1: Rotation Encryption with key\n");
-      printf("The encrypted message is:\n");
-      //char array to store message string
-      char encryptMessage[100000];
+    // A switch statement is used to run each assignment task 
+    switch(select) 
+    {
+        // Case 1 runs task 1
+        case 1:
+        //print text just to inform user
+        printf("You are running Task 1: Rotation Encryption with key\n");
+        printf("The encrypted message is:\n");
+        //char array to store message string
+        char encryptMessage[100000];
       
-      //open a text file called message and read it
-      FILE *input;
-      input = fopen("message.txt", "r");
+        //open a text file called message and read it
+        FILE *input;
+        input = fopen("message.txt", "r");
       
-      //if can not open input2 print error message
-      if (input==NULL)
-      {
-          perror("fopen()");
-          return 0;
-      }
+        //if can not open input2 print error message
+        if (input==NULL)
+        {
+            perror("fopen()");
+            return 0;
+        }
       
-      //read input2 while not end of file and store it in encryptMessage
-      while (!feof(input))
-      {
-          fscanf(input, "%c", encryptMessage);
-          //run caesarEncrypt function
-          caesarEncrypt(encryptMessage);
-      }
+        //read input2 while not end of file and store it in encryptMessage
+        while (!feof(input))
+        {
+            fscanf(input, "%c", encryptMessage);
+            //run caesarEncrypt function
+            caesarEncrypt(encryptMessage);
+        }
       
-      //close text file
-      fclose(input);
+        //close text file
+        fclose(input);
       
-      //print text just to tell user the program is finished
-      printf("\nEnd of program\n");
-      break;    
+        //print text just to tell user the program is finished
+        printf("\nEnd of program\n");
+        break;    
      
-// Case 2 runs task 2
-    case 2:
-    //print text just to inform user
-      printf("You are running Task 2: Rotation Decryption with key\n");
-      printf("The decrypted message is:\n");
-      // char array to store message string
-      char decryptMessage[100000];
+        // Case 2 runs task 2
+        case 2:
+        //print text just to inform user
+        printf("You are running Task 2: Rotation Decryption with key\n");
+        printf("The decrypted message is:\n");
+        // char array to store message string
+        char decryptMessage[100000];
       
-      //open a text file called message2 and read it
-      FILE *input2;
-      input2 = fopen("message2.txt", "r");
+        //open a text file called message2 and read it
+        FILE *input2;
+        input2 = fopen("message2.txt", "r");
       
-      //if can not open input2 print error message
-      if (input2==NULL)
-      {
-          perror("fopen()");
-          return 0;
-      }
+        //if can not open input2 print error message
+        if (input2==NULL)
+        {
+            perror("fopen()");
+            return 0;
+        }
       
-      //read input2 while not end of file and store it in decryptMessage
-      while (!feof(input2))
-      {
-          fscanf(input2, "%c", decryptMessage);
-          //run caesarDecrypt function
-          caesarDecrypt(decryptMessage);
-      }
+        //read input2 while not end of file and store it in decryptMessage
+        while (!feof(input2))
+        {
+            fscanf(input2, "%c", decryptMessage);
+            //run caesarDecrypt function
+            caesarDecrypt(decryptMessage);
+        }
       
-      //close text file
-      fclose(input2);
+        //close text file
+        fclose(input2);
       
-      //print text just to tell user the program is finished
-      printf("\nEnd of program\n");
-      break;
+        //print text just to tell user the program is finished
+        printf("\nEnd of program\n");
+        break;
 
-// Case 3 runs task 3  
-    case 3:
-    //print text just to inform user
-    printf("You are running Task 3: Substitution Encryption with key\n");
+        // Case 3 runs task 3  
+        case 3:
+        //print text just to inform user
+        printf("You are running Task 3: Substitution Encryption with key\n");
     
-    //2 char arrays to store message string and key string
-    char subEncryptMessage[]="PLEASE GET MILK AT THE SHOPS";
-    char subEncryptString[]= "QWERTYUIOPASDFGHJKLZXCVBNM";
+        //2 char arrays to store message string and key string
+        char subEncryptMessage[]="PLEASE GET MILK AT THE SHOPS";
+        char subEncryptString[]= "QWERTYUIOPASDFGHJKLZXCVBNM";
+        
+        //run subEncrypt function
+        subEncrypt(subEncryptMessage, subEncryptString);
     
-    //run subEncrypt function
-    subEncrypt(subEncryptMessage, subEncryptString);
+        //print text just to tell user the program is finished
+        printf("\nEnd of program\n");
+        break;
     
-    //print text just to tell user the program is finished
-    printf("\nEnd of program\n");
-    break;
+        // Case 4 runs task 4
+        case 4:    
+        //print text just to inform user
+        printf("You are running Task 4: Substitution Decryption with key\n");
     
-// Case 4 runs task 4
-    case 4:    
-    //print text just to inform user
-    printf("You are running Task 4: Substitution Decryption with key\n");
+        //Two char arrays to store message string and key string
+        char subDecryptMessage[]="HSTQLT UTZ DOSA QZ ZIT LIGHL";
+        char subDecryptString[]= "QWERTYUIOPASDFGHJKLZXCVBNM";
     
-    //Two char arrays to store message string and key string
-    char subDecryptMessage[]="HSTQLT UTZ DOSA QZ ZIT LIGHL";
-    char subDecryptString[]= "QWERTYUIOPASDFGHJKLZXCVBNM";
+        //run subDecrypt function
+        subDecrypt(subDecryptMessage, subDecryptString);
     
-    //run subDecrypt function
-    subDecrypt(subDecryptMessage, subDecryptString);
+        //print text just to tell user the program is finished
+        printf("\nEnd of program\n");
+        break;
     
-    //print text just to tell user the program is finished
-    printf("\nEnd of program\n");
-    break;
+        case 5:
+        printf("Sorry Task 5 is currently unavailiable\n");
+        break;
     
-    case 5:
-    printf("Sorry Task 5 is currently unavailiable\n");
-    break;
+        case 6:
+        printf("Sorry Task 6 is currently unavailiale\n");
+        break;
     
-    case 6:
-    printf("Sorry Task 6 is currently unavailiale\n");
-    break;
-    
-    default:
-    printf("Error please start again\n");
-    break;
-}
+        default:
+        printf("Error please start again\n");
+        break;
+    }
 
 return 0;
 }
@@ -184,54 +183,63 @@ return 0;
 //Task 1 function definition
 void caesarEncrypt(char *encryptMessage) 
 {
-      int i=0, key =7;
-
-        if (encryptMessage[i]<65||encryptMessage[i]>90 )
-        {
-            printf("%c",encryptMessage[i]); 
-        }
-        else 
-        {
-           encryptMessage[i]=encryptMessage[i]-65; 
-           encryptMessage[i]=(encryptMessage[i]+key)%26;
-           encryptMessage[i]=encryptMessage[i]+65;
-           printf("%c",encryptMessage[i]);
-        }
+    //set i to the first position of the string
+    int i=0, key =7;
+      
+    // if statement to just print all charactors that are not capital letters
+    if (encryptMessage[i]<65||encryptMessage[i]>90 )
+    {
+         printf("%c",encryptMessage[i]); 
+    }
+    //else statement to encrypt capital letters
+    else 
+    {
+        encryptMessage[i]=encryptMessage[i]-65; 
+        encryptMessage[i]=(encryptMessage[i]+key)%26;
+        encryptMessage[i]=encryptMessage[i]+65;
+        printf("%c",encryptMessage[i]);
+    }
 }
 
 //Task 2 Function definition
 void caesarDecrypt(char *decryptMessage) 
-
-{
-      int i=0, key =7;
+{    
+    //set i to the first position of the string
+    int i=0, key =7;
       
-         if (decryptMessage[i]<65||decryptMessage[i]>90 )
-        {
-            printf("%c",decryptMessage[i]); 
-        }
-        else 
-        {
-           decryptMessage[i]=decryptMessage[i]-65; 
-           decryptMessage[i]=(decryptMessage[i]-key+26)%26;
-           decryptMessage[i]=decryptMessage[i]+65;
-           printf("%c",decryptMessage[i]);   
-        }
-      
+    // if statement to just print all charactors that are not capital letters
+    if (decryptMessage[i]<65||decryptMessage[i]>90 )
+    {
+         printf("%c",decryptMessage[i]); 
+    }
+    // else staement to decrypt capital letters
+    else 
+    {
+        decryptMessage[i]=decryptMessage[i]-65; 
+        decryptMessage[i]=(decryptMessage[i]-key+26)%26;
+        decryptMessage[i]=decryptMessage[i]+65;
+        printf("%c",decryptMessage[i]);   
+    }  
 }
 
 //Task 3 function definition
 void subEncrypt(char *subEncryptMessage, char *subEncryptString)
 {
+    //integer declared to use for counting each string position
     int i, n;
     
+    //for loop to read each charator in the subDecryptMessage string
+    //i is set to 0 so it starts from the first position in the string
+    //then keeps adding 1 until it sees the terminating 0 (NULL)
     for(i=0;subEncryptMessage[i]!='\0';i++)
     {
-        
+        //if statement to encrypt only capital letters
         if (subEncryptMessage[i]>=65 && subEncryptMessage[i]<=90 )
         {
             n=subEncryptMessage[i]-65;
             printf("%c",subEncryptString[n]); 
         }
+        //else statement just prints all charactors that are not capitals
         else 
         {
             printf("%c", subEncryptMessage[i]);
@@ -244,11 +252,17 @@ void subEncrypt(char *subEncryptMessage, char *subEncryptString)
 //Task 4 function definition
 void subDecrypt(char *subDecryptMessage, char *subDecryptString)
 {
+    // integer declared to use for counting each string position
     int i, n;
+    //char declared to use for the decrypted letter
     char key;
     
+    //for loop to read each charator in the subDecryptMessage string
+    //i is set to 0 so it starts from the first position in the string
+    //then keeps adding 1 until it sees the terminating 0 (NULL)
     for(i=0;subDecryptMessage[i]!='\0';i++)
     {
+        //if statement to encrypt only capital letters
         if (subDecryptMessage[i]>=65 && subDecryptMessage[i]<=90)
         {
             for (n=0;subDecryptString[n]!=subDecryptMessage[i];n++)
@@ -258,6 +272,7 @@ void subDecrypt(char *subDecryptMessage, char *subDecryptString)
             key=n+65;
             printf("%c", key);
         }
+        //else statement just prints all charactors that are not capitals
         else 
         {
             printf("%c", subDecryptMessage[i]);
