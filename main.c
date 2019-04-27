@@ -181,6 +181,10 @@ return 0;
 //****************************All function definitions****************************************
 
 //Task 1 function definition
+
+/*This function takes an input from a pointer to the encryptMessage string, encrypts the message
+by moving the value the key ammount, then printing it to the screen. It has no return value*/
+
 void caesarEncrypt(char *encryptMessage) 
 {
     //set i to the first position of the string
@@ -202,6 +206,9 @@ void caesarEncrypt(char *encryptMessage)
 }
 
 //Task 2 Function definition
+/*This function takes an input from the pointer to the decryptMessage string and decrypts the message
+by moving the value back the ammount of the key, then printing it to the screen. It has no return value*/
+
 void caesarDecrypt(char *decryptMessage) 
 {    
     //set i to the first position of the string
@@ -223,6 +230,8 @@ void caesarDecrypt(char *decryptMessage)
 }
 
 //Task 3 function definition
+/*This function takes an input from two pointers. One from the subEncryptMessage string and 
+the other from the subEncryptString. It then 
 void subEncrypt(char *subEncryptMessage, char *subEncryptString)
 {
     //integer declared to use for counting each string position
