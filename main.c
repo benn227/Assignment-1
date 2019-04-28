@@ -6,7 +6,7 @@
 The first is with the caesar rotation method, and the second is with the substitution method. 
 The program needs to be run in the termminal so the scanf function works in the initial task 
 selection. The messages in task 1 and 2 are read from a text file, and the messages in task 3 
-and 4 are hard coded in the declaration. Tasks 5 and 6 are not done.*/
+and 4 are hard coded in the string initilisation. Tasks 5 and 6 are not done.*/
 
 //*******************************inluded libraries***************************************
 #include <stdio.h>
@@ -31,7 +31,7 @@ void subDecrypt(char *subDecryptMessage, char *subDecryptString);
 
 int main() 
 {
-    //char variable for store user input, to select task in switch statement
+    //char variable for store user input from scanf, to select task in switch statement
     char select; 
       
     /* the 'do while' loop allows the user to select which task they would like to run
@@ -74,14 +74,14 @@ int main()
         FILE *input;
         input = fopen("message.txt", "r");
       
-        //if can not open input2 print error message
+        //if can not open input print error message
         if (input==NULL)
         {
             perror("fopen()");
             return 0;
         }
       
-        //read input2 while not end of file and store it in encryptMessage
+        //read input while not end of file and store it in encryptMessage
         while (!feof(input))
         {
             fscanf(input, "%c", encryptMessage);
