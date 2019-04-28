@@ -6,10 +6,10 @@
 The first is with the caesar rotation method, and the second is
 with the substitution method.*/
 
-//***********************************inluded libraries**********************************
+//*******************************inluded libraries***************************************
 #include <stdio.h>
 
-//******************************all function prototypes**********************************
+//****************************all function prototypes***********************************
 
 //Task 1 function prototype
 void caesarEncrypt(char *encryptMessage);
@@ -29,14 +29,13 @@ void subDecrypt(char *subDecryptMessage, char *subDecryptString);
 
 int main() 
 {
-    //char variable for user input to select task
+    //char variable for store user input, to select task in switch statement
     char select; 
       
-    /* the do while loop allows the user to select which task they would like to run
+    /* the 'do while' loop allows the user to select which task they would like to run
     It has the condition to keep running while the user selects any value less than 
     97 or greater than 102 because the ASCII value for 'a' is 97 and 'f' is 102
     and they are the only selections we want. */
-      
     do 
     {
       printf("Press 'a' to run task 1\n");
@@ -182,8 +181,9 @@ return 0;
 
 //Task 1 function definition
 
-/*This function takes an input from a pointer to the encryptMessage string, encrypts the message
-by moving the value the key ammount, then printing it to the screen. It has no return value*/
+/*This function takes an input from a pointer to the encryptMessage string (initialised to
+100000 bytes), then encrypts the message by rotating the value the key ammount, then printing 
+it to the screen. It has no return value*/
 
 void caesarEncrypt(char *encryptMessage) 
 {
@@ -198,16 +198,21 @@ void caesarEncrypt(char *encryptMessage)
     //else statement to encrypt capital letters
     else 
     {
+        //subtract 65 from ASCII value of char to give a value between 0 and 26
         encryptMessage[i]=encryptMessage[i]-65; 
+        //add the key value to rotate the message char, 
+        //then find modulus to rotate value when it becomes larger than 26
         encryptMessage[i]=(encryptMessage[i]+key)%26;
+        //add 65 to get final ASCII value
         encryptMessage[i]=encryptMessage[i]+65;
         printf("%c",encryptMessage[i]);
     }
 }
 
 //Task 2 Function definition
-/*This function takes an input from the pointer to the decryptMessage string and decrypts the message
-by moving the value back the ammount of the key, then printing it to the screen. It has no return value*/
+/*This function takes an input from the pointer to the decryptMessage string (initialised
+to 100000 bytes) and decrypts the message by rotating the value back the ammount of the key, 
+then printing it to the screen. It has no return value*/
 
 void caesarDecrypt(char *decryptMessage) 
 {    
@@ -222,8 +227,13 @@ void caesarDecrypt(char *decryptMessage)
     // else staement to decrypt capital letters
     else 
     {
+        //subtract 65 from ASCII value of char to give a value between 0 and 26
         decryptMessage[i]=decryptMessage[i]-65; 
+        //subtract the key value to rotate the message char back,
+        //also add 26 to ensure the value is always positive
+        //then find modulus to rotate value when it becomes larger than 26
         decryptMessage[i]=(decryptMessage[i]-key+26)%26;
+        //add 65 to get final ASCII value
         decryptMessage[i]=decryptMessage[i]+65;
         printf("%c",decryptMessage[i]);   
     }  
@@ -231,7 +241,10 @@ void caesarDecrypt(char *decryptMessage)
 
 //Task 3 function definition
 /*This function takes an input from two pointers. One from the subEncryptMessage string and 
-the other from the subEncryptString. It then 
+the other from the subEncryptString, which are both initialised automatically in the hard code. 
+It then substitutes the subEncryptMessage char with one in subEncryptString. 
+It has no return value*/
+
 void subEncrypt(char *subEncryptMessage, char *subEncryptString)
 {
     //integer declared to use for counting each string position
@@ -259,6 +272,10 @@ void subEncrypt(char *subEncryptMessage, char *subEncryptString)
 }
 
 //Task 4 function definition
+/*This function takes an input from two pointers. One from the subDecryptMessage string and 
+the other from the subDecryptString, which are both initialised automatically in the hard code. 
+It then substitutes the subDecryptMessage char with one in subDecryptString. 
+It has no return value*/
 void subDecrypt(char *subDecryptMessage, char *subDecryptString)
 {
     // integer declared to use for counting each string position
@@ -274,10 +291,13 @@ void subDecrypt(char *subDecryptMessage, char *subDecryptString)
         //if statement to encrypt only capital letters
         if (subDecryptMessage[i]>=65 && subDecryptMessage[i]<=90)
         {
+            //for loop tests subDecryptMessage string until it equals subDecryptString char 
+            //value, then stores the position it is at in key variable
             for (n=0;subDecryptString[n]!=subDecryptMessage[i];n++)
             {
                 key=n;
             }
+            //add 65 to give ASCII value of the char
             key=n+65;
             printf("%c", key);
         }
