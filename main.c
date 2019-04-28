@@ -1,10 +1,12 @@
 //--------------------------------------------------------------------------------------
-//*********************************Engg1003 Assignment**********************************
+//*********************************ENGG1003 Assignment**********************************
 //--------------------------------------------------------------------------------------
 
 /*This program allows the user to Cipher and Decipher text in two ways.
-The first is with the caesar rotation method, and the second is
-with the substitution method.*/
+The first is with the caesar rotation method, and the second is with the substitution method. 
+The program needs to be run in the termminal so the scanf function works in the initial task 
+selection. The messages in task 1 and 2 are read from a text file, and the messages in task 3 
+and 4 are hard coded in the declaration. Tasks 5 and 6 are not done.*/
 
 //*******************************inluded libraries***************************************
 #include <stdio.h>
@@ -52,8 +54,9 @@ int main()
     //printing users selection to the screen
     printf("You selected '%c'\n", select);
 
-    // subtracted 96 from selection value to get a value between 1 and 6 for the switch statement
-    //ASCII value of 'a' is 97. So by subtracting 96 it will assign 1 to select variable to run case 1.
+    /* subtracted 96 from selection value to get a value between 1 and 6 for the switch 
+    statement. ASCII value of 'a' is 97. So by subtracting 96 it will assign 1 to select 
+    variable to run case 1*/
     select=select-96;
 
     // A switch statement is used to run each assignment task 
@@ -65,7 +68,7 @@ int main()
         printf("You are running Task 1: Rotation Encryption with key\n");
         printf("The encrypted message is:\n");
         //char array to store message string
-        char encryptMessage[100000];
+        char encryptMessage[1000000];
       
         //open a text file called message and read it
         FILE *input;
@@ -99,7 +102,7 @@ int main()
         printf("You are running Task 2: Rotation Decryption with key\n");
         printf("The decrypted message is:\n");
         // char array to store message string
-        char decryptMessage[100000];
+        char decryptMessage[1000000];
       
         //open a text file called message2 and read it
         FILE *input2;
@@ -182,7 +185,7 @@ return 0;
 //Task 1 function definition
 
 /*This function takes an input from a pointer to the encryptMessage string (initialised to
-100000 bytes), then encrypts the message by rotating the value the key ammount, then printing 
+1000000 bytes), then encrypts the message by rotating the value the key ammount, then printing 
 it to the screen. It has no return value*/
 
 void caesarEncrypt(char *encryptMessage) 
@@ -211,7 +214,7 @@ void caesarEncrypt(char *encryptMessage)
 
 //Task 2 Function definition
 /*This function takes an input from the pointer to the decryptMessage string (initialised
-to 100000 bytes) and decrypts the message by rotating the value back the ammount of the key, 
+to 1000000 bytes) and decrypts the message by rotating the value back the ammount of the key, 
 then printing it to the screen. It has no return value*/
 
 void caesarDecrypt(char *decryptMessage) 
@@ -250,6 +253,8 @@ void subEncrypt(char *subEncryptMessage, char *subEncryptString)
     //integer declared to use for counting each string position
     int i, n;
     
+    printf("The decrpted message is:\n");
+    
     //for loop to read each charator in the subDecryptMessage string
     //i is set to 0 so it starts from the first position in the string
     //then keeps adding 1 until it sees the terminating 0 (NULL)
@@ -282,6 +287,8 @@ void subDecrypt(char *subDecryptMessage, char *subDecryptString)
     int i, n;
     //char declared to use for the decrypted letter
     char key;
+    
+    printf("The decrypted message is:\n");
     
     //for loop to read each charator in the subDecryptMessage string
     //i is set to 0 so it starts from the first position in the string
